@@ -1,0 +1,111 @@
+---
+title: "TENxVisiumData"
+author:
+- name: Helena L. Crowell
+  affiliation: Department of Molecular Life Sciences, University of Zurich, Zurich, Switzerland
+output:
+  BiocStyle::html_document:
+    toc_float: true
+package: TENxVisiumData
+abstract: |
+  The TENxVisiumData ExperimentHub package provides a collection of Visium spatial gene expression datasets by 10X Genomics. Data cover various organisms and tissues, and are formatted into objects of class SpatialExperiment.
+vignette: |
+  %\VignetteIndexEntry{TENxVisiumData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, error = FALSE)
+```
+
+# Datasets
+
+The `TENxVisiumData` package provides an R/Bioconductor resource for 
+[Visium spatial gene expression datasets by 10x Genomics](https://support.10xgenomics.com/spatial-gene-expression/datasets), 
+currently including ten samples from two organisms and seven tissues:
+
+* [Human Breast Cancer (Block A Section 1)][HumanBreastCancer1]
+* [Human Breast Cancer (Block A Section 2)][HumanBreastCancer2]
+* [Human Heart][HumanHeart]
+* [Human Lymph Node][HumanLymphNode]
+* [Mouse Kidney Section (Coronal)][MouseKidney]
+* [Mouse Brain Section (Coronal)][MouseBrainCoronal]
+* [Mouse Brain Serial Section 1 (Sagittal-Anterior)][MouseBrainSagittalAnterior1]
+* [Mouse Brain Serial Section 2 (Sagittal-Anterior)][MouseBrainSagittalAnterior2]
+* [Mouse Brain Serial Section 1 (Sagittal-Posterior)][MouseBrainSagittalPosterior1] 
+* [Mouse Brain Serial Section 2 (Sagittal-Posterior)][MouseBrainSagittalPosterior2]
+
+These are provided as seven different datasets:
+
+* HumanBreastCancer
+* HumanHeart
+* HumanLymphNode
+* MouseKidneyCoronal
+* MouseBrainCoronal
+* MouseBrainSagittalPosterior
+* MouseBrainSagittalAnterior
+
+A list of currently available datasets can be obtained using the `ExperimentHub` interface:
+
+```{r}
+library(ExperimentHub)
+eh <- ExperimentHub()
+(q <- query(eh, "TENxVisium"))
+```
+
+# Representation
+
+Each dataset is provided as a `r Biocpkg("SpatialExperiment")`, which extends the `r Biocpkg("SingleCellExperiment")` class with features specific to spatially resolved data.
+
+Briefly, spatial coordinates are stored in the object's observation metadata (`colData`) and are accessible via the`spatialData()` accessor. Image-related data are stored inside the `int_metadata`'s `imgData` field and accessible with `imgData()`. For more details, see the package's vignette.
+
+# Loading the data
+
+```{r}
+library(TENxVisiumData)
+```
+
+To retrieve a dataset, we can use the `TENxVisiumData()` function, which takes as input one of the dataset identifiers given above: 
+
+```{r}
+(spe <- TENxVisiumData(dataset = "HumanBreastCancer"))
+```
+
+Alternatively, data can loaded directly from Bioconductor's `r Biocpkg("ExerimentHub")` as follows. First, we initialize a hub instance and store the complete list of records in a variable `eh`:
+
+```{r}
+library(ExperimentHub)
+eh <- ExperimentHub()
+```
+
+Using `query()`, we then identify any records made available by the `TENxVisiumData` package, as well as their accession IDs (EH1234):
+
+```{r}
+(q <- query(eh, "TENxVisium"))
+```
+
+Finally, we can load the data into R via `eh[[id]]`, where `id` corresponds to the data entry's identifier we'd like to load:
+
+```{r}
+
+```
+
+<style type="text/css"> .smaller { font-size: 10px } </style>
+
+# Session information {- .smaller}
+
+```{r}
+sessionInfo()
+```
+
+[HumanBreastCancer1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1
+[HumanBreastCancer2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_2
+[HumanHeart]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart
+[HumanLymphNode]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Lymph_Node
+[MouseKidney]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Kidney
+[MouseBrainCoronal]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Adult_Mouse_Brain
+[MouseBrainSagittalPosterior1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior
+[MouseBrainSagittalPosterior2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior_Section_2
+[MouseBrainSagittalAnterior1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior
+[MouseBrainSagittalAnterior2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior_Section_2
