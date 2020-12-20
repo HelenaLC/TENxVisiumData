@@ -5,5 +5,5 @@ The `TENxVisiumData` package provides a collection of [Visium spatial gene expre
 The package is currently only available through GitHub, and should be installed using:
 
 ```
-BiocManager::install("helenalc/TENxVisiumData")
+BiocManager::install("HelenaLC/TENxVisiumData")
 ```

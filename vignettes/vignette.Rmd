@@ -19,32 +19,47 @@ vignette: |
 knitr::opts_chunk$set(message = FALSE, warning = FALSE, error = FALSE)
 ```
 
-# Datasets
+# Available datasets
 
 The `TENxVisiumData` package provides an R/Bioconductor resource for 
-[Visium spatial gene expression datasets by 10x Genomics](https://support.10xgenomics.com/spatial-gene-expression/datasets), 
-currently including ten samples from two organisms and seven tissues:
+[Visium spatial gene expression datasets by 10X Genomics](https://support.10xgenomics.com/spatial-gene-expression/datasets). The package currently includes 13 datasets from 23 samples across two organisms (human and mouse) and 13 tissues:
 
-* [Human Breast Cancer (Block A Section 1)][HumanBreastCancer1]
-* [Human Breast Cancer (Block A Section 2)][HumanBreastCancer2]
-* [Human Heart][HumanHeart]
-* [Human Lymph Node][HumanLymphNode]
-* [Mouse Kidney Section (Coronal)][MouseKidney]
-* [Mouse Brain Section (Coronal)][MouseBrainCoronal]
-* [Mouse Brain Serial Section 1 (Sagittal-Anterior)][MouseBrainSagittalAnterior1]
-* [Mouse Brain Serial Section 2 (Sagittal-Anterior)][MouseBrainSagittalAnterior2]
-* [Mouse Brain Serial Section 1 (Sagittal-Posterior)][MouseBrainSagittalPosterior1] 
-* [Mouse Brain Serial Section 2 (Sagittal-Posterior)][MouseBrainSagittalPosterior2]
-
-These are provided as seven different datasets:
-
-* HumanBreastCancer
+* HumanBreastCancerIDC
+  * [Human Breast Cancer (Block A Section 1)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1)
+  * [Human Breast Cancer (Block A Section 2)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_2)
+* HumanBreastCancerILC
+  * [Human Breast Cancer: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_BreastCancer)
+  * [Human Breast Cancer: Targeted, Immunology Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_BreastCancer_Immunology)
+* HumanCerebellum
+  * [Human Cerebellum: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_Cerebellum)
+  * [Human Cerebellum: Targeted, Neuroscience Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_Cerebellum_Neuroscience)
+* HumanColorectalCancer
+  * [Human Colorectal Cancer: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_ColorectalCancer)
+  * [Human Colorectal Cancer: Targeted, Gene Signature Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_ColorectalCancer_GeneSignature)
+* HumanGlioblastoma
+  * [Human Glioblastoma: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_Glioblastoma)
+  * [Human Glioblastoma: Targeted, Pan-Cancer Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_Glioblastoma_Pan_Cancer)
 * HumanHeart
+  * [Human Heart](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart)
 * HumanLymphNode
-* MouseKidneyCoronal
+  * [Human Lymph Node](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Lymph_Node)
+* HumanOvarianCancer
+  * [Human Ovarian Cancer: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_OvarianCancer)
+  * [Human Ovarian Cancer: Targeted, Immunology Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_OvarianCancer_Immunology)
+  * [Human Ovarian Cancer: Targeted, Pan-Cancer Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_OvarianCancer_Pan_Cancer)
+* HumanSpinalCord
+  * [Human Spinal Cord: Whole Transcriptome Analysis](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_SpinalCord)
+  * [Human Spinal Cord: Targeted, Neuroscience Panel](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Targeted_Visium_Human_SpinalCord_Neuroscience)
 * MouseBrainCoronal
-* MouseBrainSagittalPosterior
+  * [Mouse Brain Section (Coronal)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Adult_Mouse_Brain)
 * MouseBrainSagittalAnterior
+  * [Mouse Brain Serial Section 1 (Sagittal-Anterior)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior)
+  * [Mouse Brain Serial Section 2 (Sagittal-Anterior)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior_Section_2)
+* MouseBrainSagittalPosterior
+  * [Mouse Brain Serial Section 1 (Sagittal-Posterior)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior)
+  * [Mouse Brain Serial Section 2 (Sagittal-Posterior)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior_Section_2)
+* MouseKidneyCoronal
+  * [Mouse Kidney Section (Coronal)](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Kidney)
 
 A list of currently available datasets can be obtained using the `ExperimentHub` interface:
 
@@ -54,41 +69,43 @@ eh <- ExperimentHub()
 (q <- query(eh, "TENxVisium"))
 ```
 
-# Representation
-
-Each dataset is provided as a `r Biocpkg("SpatialExperiment")`, which extends the `r Biocpkg("SingleCellExperiment")` class with features specific to spatially resolved data.
-
-Briefly, spatial coordinates are stored in the object's observation metadata (`colData`) and are accessible via the`spatialData()` accessor. Image-related data are stored inside the `int_metadata`'s `imgData` field and accessible with `imgData()`. For more details, see the package's vignette.
-
 # Loading the data
+
+To retrieve a dataset, we can use the `TENxVisiumData()` function, which takes as input one of the dataset identifiers given above. E.g.:
 
 ```{r}
 library(TENxVisiumData)
+spe <- TENxVisiumData("HumanHeart")
 ```
 
-To retrieve a dataset, we can use the `TENxVisiumData()` function, which takes as input one of the dataset identifiers given above: 
+Alternatively, data can loaded directly from Bioconductor's `r Biocpkg("ExerimentHub")` as follows. First, we initialize a hub instance and store the complete list of records in a variable `eh`. Using `query()`, we then identify any records made available by the `TENxVisiumData` package, as well as their accession IDs (EH1234). Finally, we can load the data into R via `eh[[id]]`, where `id` corresponds to the data entry's identifier we'd like to load. E.g.:
 
-```{r}
-(spe <- TENxVisiumData(dataset = "HumanBreastCancer"))
-```
-
-Alternatively, data can loaded directly from Bioconductor's `r Biocpkg("ExerimentHub")` as follows. First, we initialize a hub instance and store the complete list of records in a variable `eh`:
-
-```{r}
+```{r eval = FALSE}
 library(ExperimentHub)
-eh <- ExperimentHub()
+eh <- ExperimentHub()        # initialize hub instance
+q <- query(eh, "TENxVisium") # retrieve 'TENxVisiumData' records
+id <- q$ah_id[1]             # specify dataset ID to load
+spe <- eh[[id]]              # load specified dataset
 ```
 
-Using `query()`, we then identify any records made available by the `TENxVisiumData` package, as well as their accession IDs (EH1234):
+# Data representation
+
+Each dataset is provided as a `r Biocpkg("SpatialExperiment")` (SPE), which extends the `r Biocpkg("SingleCellExperiment")` class with features specific to spatially resolved data.
+
+Briefly, spatial coordinates are stored in the object's observation metadata (`colData`) and are accessible via the`spatialData()` accessor. Image-related data are stored inside the `int_metadata`'s `imgData` field and accessible with `imgData()`. For more details, see the package's vignette.
+
+Datasets with multiple sections are consolidated into a single SPE with `colData` field `sample_id` indicating each spot's sample of origin. E.g.:
 
 ```{r}
-(q <- query(eh, "TENxVisium"))
+spe <- TENxVisiumData("MouseBrainSagittalAnterior")
+table(spe$sample_id, spe$in_tissue)
 ```
 
-Finally, we can load the data into R via `eh[[id]]`, where `id` corresponds to the data entry's identifier we'd like to load:
+Datasets of targeted analyses are provided as a *nested* SPE, with whole transcriptome measurements as primary data, and those obtained from targeted panels as `altExp`s. E.g.:
 
 ```{r}
-
+spe <- TENxVisiumData("HumanOvarianCancer")
+altExpNames(spe)
 ```
 
 <style type="text/css"> .smaller { font-size: 10px } </style>
@@ -98,14 +115,3 @@ Finally, we can load the data into R via `eh[[id]]`, where `id` corresponds to t
 ```{r}
 sessionInfo()
 ```
-
-[HumanBreastCancer1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1
-[HumanBreastCancer2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_2
-[HumanHeart]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart
-[HumanLymphNode]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Lymph_Node
-[MouseKidney]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Kidney
-[MouseBrainCoronal]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Adult_Mouse_Brain
-[MouseBrainSagittalPosterior1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior
-[MouseBrainSagittalPosterior2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior_Section_2
-[MouseBrainSagittalAnterior1]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior
-[MouseBrainSagittalAnterior2]: https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior_Section_2

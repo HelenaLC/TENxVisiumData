@@ -16,25 +16,43 @@
 #' @importFrom utils download.file
 #' @export
 
-TENxVisiumData <- function(dataset = c(
-    "HumanBreastCancer", "HumanHeart", "HumanLymphNode", 
-    "MouseKidneyCoronal", "MouseBrainCoronal",
-    "MouseBrainSagittalPosterior", "MouseBrainSagittalAnterior"),
-    path = "tmp", delete = TRUE, verbose = FALSE)
+TENxVisiumData <- function(
+    dataset = c(
+        "HumanBreastCancerIDC", 
+        "HumanBreastCancerILC", 
+        "HumanCerebellum", 
+        "HumanColorectalCancer", 
+        "HumanGlioblastoma", 
+        "HumanHeart", 
+        "HumanLymphNode", 
+        "HumanOvarianCancer", 
+        "HumanSpinalCord", 
+        "MouseBrainCoronal", 
+        "MouseBrainSagittalPosterior", 
+        "MouseBrainSagittalAnterior", 
+        "MouseKidneyCoronal"),
+    path = "tmp", 
+    delete = TRUE, 
+    verbose = FALSE)
 {
     url <- switch(match.arg(dataset),
-        HumanBreastCancer = "https://www.dropbox.com/s/2z79jgjmy11v7k8/HumanBreastCancer.rda?dl=1",
-        HumanHeart = "https://www.dropbox.com/s/k799ljud54dsrio/HumanHeart.rda?dl=1",
-        HumanLymphNode = "https://www.dropbox.com/s/6yra1gtgw22ujrh/HumanLymphNode.rda?dl=1",
-        MouseKidneyCoronal = "https://www.dropbox.com/s/8b35cigztksyorw/MouseKidneyCoronal.rda?dl=1",
-        MouseBrainCoronal = "https://www.dropbox.com/s/x0gt47lg2ximtsb/MouseBrainCoronal.rda?dl=1",
-        MouseBrainSagittalPosterior = "https://www.dropbox.com/s/6btyr2w37trkabd/MouseBrainSagittalPosterior.rda?dl=1",
-        MouseBrainSagittalAnterior = "https://www.dropbox.com/s/uzmyxjzemh8sx2k/MouseBrainSagittalAnterior.rda?dl=1")
+        HumanBreastCancerIDC = "https://www.dropbox.com/s/e61r2e80ti9elpk/HumanBreastCancerIDC.rda?dl=1",
+        HumanBreastCancerILC = "https://www.dropbox.com/s/3c4tihxmj3yav1y/HumanBreastCancerILC.rda?dl=1",
+        HumanCerebellum = "https://www.dropbox.com/s/1hg5dvojtfanhln/HumanCerebellum.rda?dl=1",
+        HumanColorectalCancer = "https://www.dropbox.com/s/hohvvfpu80wtk3l/HumanColorectalCancer.rda?dl=1",
+        HumanGlioblastoma = "https://www.dropbox.com/s/65v7v0kezonunj9/HumanGlioblastoma.rda?dl=1",
+        HumanHeart = "https://www.dropbox.com/s/l3w26opg1w3uvto/HumanHeart.rda?dl=1",
+        HumanLymphNode = "https://www.dropbox.com/s/4pq3ootb23iox0z/HumanLymphNode.rda?dl=1",
+        HumanOvarianCancer = "https://www.dropbox.com/s/hscsqaja4ab2wx9/HumanOvarianCancer.rda?dl=1",
+        HumanSpinalCord = "https://www.dropbox.com/s/itqfoiph5ccr2jf/HumanSpinalCord.rda?dl=1",
+        MouseBrainCoronal = "https://www.dropbox.com/s/qynv00xm1a457zh/MouseBrainCoronal.rda?dl=1",
+        MouseBrainSagittalAnterior = "https://www.dropbox.com/s/7bq7xt08h01z6c8/MouseBrainSagittalAnterior.rda?dl=1",
+        MouseBrainSagittalPosterior = "https://www.dropbox.com/s/gg61qnt5nb7qlj0/MouseBrainSagittalPosterior.rda?dl=1",
+        MouseKidneyCoronal = "https://www.dropbox.com/s/fvmpm4ivqgdey9v/MouseKidneyCoronal.rda?dl=1")
     
     if (!dir.exists(path)) dir.create(path)
-
-    fnm <- gsub("\\?.*$", "", basename(url))
-    fnm <- file.path(path, fnm)
+    
+    fnm <- file.path(path, gsub("\\?.*$", "", basename(url)))
     download.file(url, fnm, mode = "wb", quiet = !verbose)
     obj <- load(fnm)
     

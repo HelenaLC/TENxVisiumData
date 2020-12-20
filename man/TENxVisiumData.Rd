@@ -5,13 +5,25 @@
 \title{TENxVisiumData}
 \usage{
 TENxVisiumData(
-  dataset = c("HumanBreastCancer", "HumanHeart", "HumanLymphNode",
-    "MouseKidneyCoronal", "MouseBrainCoronal", "MouseBrainSagittalPosterior",
-    "MouseBrainSagittalAnterior")
+  dataset = c("HumanBreastCancerIDC", "HumanBreastCancerILC", "HumanCerebellum",
+    "HumanColorectalCancer", "HumanGlioblastoma", "HumanHeart", "HumanLymphNode",
+    "HumanOvarianCancer", "HumanSpinalCord", "MouseBrainCoronal",
+    "MouseBrainSagittalPosterior", "MouseBrainSagittalAnterior", "MouseKidneyCoronal"),
+  path = "tmp",
+  delete = TRUE,
+  verbose = FALSE
 )
 }
 \arguments{
-\item{dataset}{character string specifying which dataset to load.}
+\item{dataset}{character string. Specifies which dataset to load.}
+
+\item{path}{character string. Directory to save downloaded files to.}
+
+\item{delete}{logical. If TRUE (default), 
+all files will be deleted upon completion.}
+
+\item{verbose}{logical. If FALSE (default), status messages
+and progress bar during file download will be suppressed.}
 }
 \description{
 Function to load 10X Genomics Visium spatial gene expression datasets
