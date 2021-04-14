@@ -25,6 +25,17 @@ all files will be deleted upon completion.}
 \item{verbose}{logical. If FALSE (default), status messages
 and progress bar during file download will be suppressed.}
 }
+\value{
+an object of class \code{\link{SpatialExperiment}} (SPE).
+
+Datasets with multiple sections are consolidated into
+a single SPE with \code{colData} field \code{sample_id} 
+indicating each spot’s sample of origin.
+
+Datasets of targeted analyses are provided as a nested SPE, 
+with whole transcriptome measurements as primary data, and 
+those obtained from targeted panels as \code{altExp}s.
+}
 \description{
 Function to load 10X Genomics Visium spatial gene expression datasets
 from the \code{TENxVisiumData} \code{ExperimentHub} package.
