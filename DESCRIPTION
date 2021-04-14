@@ -1,11 +1,14 @@
 Package: TENxVisiumData
-Version: 0.0.1
+Version: 0.99.0
 Title: Visium spatial gene expression data by 10X Genomics
 Description: 
-    Collection of Visium spatial gene expression data by 10X Genomics 
+    Collection of Visium spatial gene expression datasets by 10X Genomics, 
     formatted into objects of class SpatialExperiment. 
-    Datasets cover various organisms and tissues, and may be used 
-    as example data in packages, for tutorials, or similar purposes.
+    Data cover various organisms and tissues, and include: 
+    single- and multi-section experiments, as well as single sections 
+    subjected to both whole transcriptome and targeted panel analysis. 
+    Datasets may be used for testing of and as examples in packages, 
+    for tutorials and workflow demonstrations, or similar purposes.
 Authors@R: person(
     "Helena L.", "Crowell", 
     email = "helena@crowell.eu", 
@@ -14,7 +17,12 @@ Authors@R: person(
 URL: https://github.com/helenalc/TENxVisiumData
 BugReports: https://github.com/helenalc/TENxVisiumData/issues
 biocViews: 
-    ExperimentHub
+    ExperimentHub,
+    ExpressionData,
+    ExperimentData, 
+    Homo_sapiens_Data, 
+    Mus_musculus_Data,
+    ReproducibleResearch
 Depends:
     ExperimentHub,
     SpatialExperiment
@@ -25,6 +33,5 @@ Suggests:
     knitr
 VignetteBuilder: 
 	knitr
-License: MIT
-Encoding: UTF-8
+License: MIT + file LICENSE
 RoxygenNote: 7.1.1
