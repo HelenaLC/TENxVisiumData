@@ -1,7 +1,7 @@
 # Human Breast Cancer
 
 dset <- "HumanBreastCancerILC"
-source("inst/script/make-data.R")
+source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 

@@ -1,7 +1,7 @@
 # Human Colorectal Cancer
 
 dset <- "HumanColorectalCancer"
-source("inst/script/make-data.R")
+source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 

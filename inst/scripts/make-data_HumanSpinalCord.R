@@ -1,7 +1,7 @@
 # Human Spinal Cord
 
 dset <- "HumanSpinalCord"
-source("inst/script/make-data.R")
+source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 

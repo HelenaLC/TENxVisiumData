@@ -1,8 +1,9 @@
-# to make all data, run:
-# for (s in list.files("inst/scripts", "make-data", full.names = TRUE)) source(s)
+# # note to self: to make all data, run:
+# suppressPackageStartupMessages(library(SpatialExperiment))
+# scripts <- list.files("inst/scripts", "make-data_", full.names = TRUE)
+# for (s in scripts) source(s)
 
-.make_data <- function(dset, urls, save = TRUE, path = "~/dropbox/TENxVisiumData") 
-{
+.make_data <- function(dset, urls, save = TRUE, path = "~/dropbox/TENxVisiumData") {
     # set sample IDs
     if (is.null(names(urls))) {
         nms <- if (length(urls) == 1) dset else paste0(dset, seq_along(urls))
@@ -19,8 +20,7 @@
     }
     
     # download data
-    for (smpl in names(urls)) 
-    {
+    for (smpl in names(urls)) {
         dir <- file.path(tmp, smpl)
         if (!dir.exists(dir)) dir.create(dir)
         
@@ -36,7 +36,7 @@
     }
     
     # load data
-    spe <- SpatialExperiment::read10xVisium(
+    spe <- read10xVisium(
         samples = file.path(tmp, names(urls)), 
         sample_id = names(urls),
         type = "sparse", data = "filtered", 

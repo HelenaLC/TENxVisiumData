@@ -1,14 +1,15 @@
 df <- data.frame(
-    BiocVersion = "3.12",
+    BiocVersion = "3.13",
     Genome = NA,
-    SourceType = NA,
+    SourceType = "tar.gz",
     SourceVersion = NA,
     Coordinate_1_based = TRUE,
     DataProvider = "10X Genomics",
     Chemistry = "Chromium_v1",
     RDataClass = "SpatialExperiment",
     DispatchClass = "Rda",
-    Maintainer = "Helena L. Crowell <helena@crowell.eu>"
+    Maintainer = "Helena L. Crowell <helena@crowell.eu>",
+    stringsAsFactors = FALSE
 )
 
 dfs <- list(

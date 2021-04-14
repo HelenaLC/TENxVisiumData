@@ -1,7 +1,7 @@
 # Human Ovarian Cancer
 
 dset <- "HumanOvarianCancer"
-source("inst/script/make-data.R")
+source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 

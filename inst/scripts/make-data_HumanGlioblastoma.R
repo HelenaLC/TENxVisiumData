@@ -1,7 +1,7 @@
 # Human Glioblastoma
 
 dset <- "HumanGlioblastoma"
-source("inst/script/make-data.R")
+source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 
