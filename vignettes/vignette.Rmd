@@ -16,7 +16,7 @@ vignette: |
 ---
 
 ```{r include = FALSE}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, error = FALSE)
+knitr::opts_chunk$set(eval = FALSE, message = FALSE, warning = FALSE, error = FALSE)
 ```
 
 # Available datasets
@@ -75,12 +75,12 @@ To retrieve a dataset, we can use the `TENxVisiumData()` function, which takes a
 
 ```{r}
 library(TENxVisiumData)
-spe <- TENxVisiumData("HumanHeart")
+spe <- HumanHeart()
 ```
 
 Alternatively, data can loaded directly from Bioconductor's `r Biocpkg("ExerimentHub")` as follows. First, we initialize a hub instance and store the complete list of records in a variable `eh`. Using `query()`, we then identify any records made available by the `TENxVisiumData` package, as well as their accession IDs (EH1234). Finally, we can load the data into R via `eh[[id]]`, where `id` corresponds to the data entry's identifier we'd like to load. E.g.:
 
-```{r eval = FALSE}
+```{r}
 library(ExperimentHub)
 eh <- ExperimentHub()        # initialize hub instance
 q <- query(eh, "TENxVisium") # retrieve 'TENxVisiumData' records
@@ -119,14 +119,14 @@ imgData(spe)
 Datasets with multiple sections are consolidated into a single SPE with `colData` field `sample_id` indicating each spot's sample of origin. E.g.:
 
 ```{r}
-spe <- TENxVisiumData("MouseBrainSagittalAnterior")
+spe <- MouseBrainSagittalAnterior()
 table(spe$sample_id)
 ```
 
 Datasets of targeted analyses are provided as a *nested* SPE, with whole transcriptome measurements as primary data, and those obtained from targeted panels as `altExp`s. E.g.:
 
 ```{r}
-spe <- TENxVisiumData("HumanOvarianCancer")
+spe <- HumanOvarianCancer()
 altExpNames(spe)
 ```
 
