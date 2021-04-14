@@ -10,6 +10,16 @@
 #' @param verbose logical. If FALSE (default), status messages
 #'   and progress bar during file download will be suppressed.
 #' 
+#' @return an object of class \code{\link{SpatialExperiment}} (SPE).
+#' 
+#' Datasets with multiple sections are consolidated into
+#' a single SPE with \code{colData} field \code{sample_id} 
+#' indicating each spot’s sample of origin.
+#' 
+#' Datasets of targeted analyses are provided as a nested SPE, 
+#' with whole transcriptome measurements as primary data, and 
+#' those obtained from targeted panels as \code{altExp}s. 
+#' 
 #' @examples 
 #' (spe <- TENxVisiumData("HumanHeart"))
 #' 
