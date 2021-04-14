@@ -90,15 +90,37 @@ spe <- eh[[id]]              # load specified dataset
 
 # Data representation
 
-Each dataset is provided as a `r Biocpkg("SpatialExperiment")` (SPE), which extends the `r Biocpkg("SingleCellExperiment")` class with features specific to spatially resolved data.
+Each dataset is provided as a `r Biocpkg("SpatialExperiment")` (SPE), which extends the `r Biocpkg("SingleCellExperiment")` (SCE) class with features specific to spatially resolved data: 
 
-Briefly, spatial coordinates are stored in the object's observation metadata (`colData`) and are accessible via the`spatialData()` accessor. Image-related data are stored inside the `int_metadata`'s `imgData` field and accessible with `imgData()`. For more details, see the package's vignette.
+```{r}
+spe
+```
+
+For details on the SPE class, we refer to the package's vignette. Briefly, the SPE harbors the following data in addition to that stored in a SCE:
+
+`spatialCoords`; a numeric matrix of spatial coordinates, stored inside the object's `int_colData`:
+
+```{r}
+head(spatialCoords(spe))
+```
+
+`spatialData`; a `DFrame` of spatially-related sample metadata, stored as part of the object's `colData`. This `colData` subset is in turn determined by the `int_metadata` field `spatialDataNames`:
+
+```{r}
+head(spatialData(spe))
+```
+
+`imgData`; a `DFrame` containing image-related data, stored inside the `int_metadata`:
+
+```{r}
+imgData(spe)
+```
 
 Datasets with multiple sections are consolidated into a single SPE with `colData` field `sample_id` indicating each spot's sample of origin. E.g.:
 
 ```{r}
 spe <- TENxVisiumData("MouseBrainSagittalAnterior")
-table(spe$sample_id, spe$in_tissue)
+table(spe$sample_id)
 ```
 
 Datasets of targeted analyses are provided as a *nested* SPE, with whole transcriptome measurements as primary data, and those obtained from targeted panels as `altExp`s. E.g.:
