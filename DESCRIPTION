@@ -34,4 +34,5 @@ Suggests:
 VignetteBuilder: 
 	knitr
 License: MIT + file LICENSE
+Encoding: UTF-8
 RoxygenNote: 7.1.1
