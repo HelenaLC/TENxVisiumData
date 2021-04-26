@@ -45,6 +45,18 @@ dfs <- list(
             "of human cerebellum tissue",
             "(one section of 10 um thickness;",
             "whole transcriptome analysis",
+            "+ targeted gene signature panel)")
+    ),
+    data.frame(
+        Title = "HumanColorectalCancer",
+        Species = "Homo sapiens",
+        RDataPath = "TENxVisiumData/HumanCerebellum.rda",
+        SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_ColorectalCancer",
+        Description = paste(
+            "Visium spatial gene expression dataset",
+            "of Invasive Adenocarcinoma large intestine tissue",
+            "(one section of 10 um thickness;",
+            "whole transcriptome analysis",
             "+ targeted neuroscience panel)")
     ),
     data.frame(
