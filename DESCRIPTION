@@ -30,7 +30,8 @@ Imports:
     utils
 Suggests:
     BiocStyle, 
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: 
 	knitr
 License: MIT + file LICENSE
