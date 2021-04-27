@@ -63,7 +63,7 @@ The `TENxVisiumData` package provides an R/Bioconductor resource for
 
 A list of currently available datasets can be obtained using the `ExperimentHub` interface:
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(ExperimentHub)
 eh <- ExperimentHub()
 (q <- query(eh, "TENxVisium"))
@@ -71,7 +71,7 @@ eh <- ExperimentHub()
 
 # Loading the data
 
-To retrieve a dataset, we can use the `TENxVisiumData()` function, which takes as input one of the dataset identifiers given above. E.g.:
+To retrieve a dataset, we can use a dataset's corresponding named function `<id>()`, where `<id>` should correspond to one a valid dataset identifier (see `?TENxVisiumData`). E.g.:
 
 ```{r}
 library(TENxVisiumData)
