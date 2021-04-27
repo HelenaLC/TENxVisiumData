@@ -16,7 +16,7 @@ vignette: |
 ---
 
 ```{r include = FALSE}
-knitr::opts_chunk$set(eval = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, error = FALSE)
 ```
 
 # Available datasets
@@ -63,7 +63,7 @@ The `TENxVisiumData` package provides an R/Bioconductor resource for
 
 A list of currently available datasets can be obtained using the `ExperimentHub` interface:
 
-```{r message = FALSE, warning = FALSE}
+```{r}
 library(ExperimentHub)
 eh <- ExperimentHub()
 (q <- query(eh, "TENxVisium"))
