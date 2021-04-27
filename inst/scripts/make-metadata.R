@@ -50,7 +50,7 @@ dfs <- list(
     data.frame(
         Title = "HumanColorectalCancer",
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanCerebellum.rda",
+        RDataPath = "TENxVisiumData/HumanColorectalCancer.rda",
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_ColorectalCancer",
         Description = paste(
             "Visium spatial gene expression dataset",
