@@ -1,6 +1,21 @@
 #' @name TENxVisiumData
 #' @title TENxVisiumData
 #' 
+#' @aliases 
+#' HumanBreastCancerIDC
+#' HumanBreastCancerILC
+#' HumanCerebellum
+#' HumanColorectalCancer
+#' HumanGlioblastoma
+#' HumanHeart
+#' HumanLymphNode
+#' HumanOvarianCancer
+#' HumanSpinalCord
+#' MouseBrainCoronal
+#' MouseBrainSagittalPosterior
+#' MouseBrainSagittalAnterior
+#' MouseKidneyCoronal
+#' 
 #' @description 
 #' Collection of Visium spatial gene expression datasets by 10X Genomics, 
 #' formatted into objects of class SpatialExperiment. 

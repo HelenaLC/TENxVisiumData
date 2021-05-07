@@ -2,6 +2,19 @@
 % Please edit documentation in R/TENxVisiumData.R
 \name{TENxVisiumData}
 \alias{TENxVisiumData}
+\alias{HumanBreastCancerIDC}
+\alias{HumanBreastCancerILC}
+\alias{HumanCerebellum}
+\alias{HumanColorectalCancer}
+\alias{HumanGlioblastoma}
+\alias{HumanHeart}
+\alias{HumanLymphNode}
+\alias{HumanOvarianCancer}
+\alias{HumanSpinalCord}
+\alias{MouseBrainCoronal}
+\alias{MouseBrainSagittalPosterior}
+\alias{MouseBrainSagittalAnterior}
+\alias{MouseKidneyCoronal}
 \title{TENxVisiumData}
 \value{
 a \code{\linkS4class{SpatialExperiment}}
