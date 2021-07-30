@@ -1,5 +1,5 @@
 Package: TENxVisiumData
-Version: 0.99.4
+Version: 1.1.1
 Title: Visium spatial gene expression data by 10X Genomics
 Description: 
     Collection of Visium spatial gene expression datasets by 10X Genomics, 

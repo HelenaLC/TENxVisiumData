@@ -1,7 +1,6 @@
 # Human Colorectal Cancer
 
 dset <- "HumanColorectalCancer"
-source("inst/scripts/make-data.R")
 
 # Whole Transcriptome Analysis
 
@@ -22,6 +21,5 @@ urls <- list(TargetedGeneSignature = list(
 y <- .make_data(dset, urls, FALSE)
 altExp(x, names(urls)) <- y
 
-dir <- "~/dropbox/TENxVisiumData"
 fnm <- paste0(dset, ".rda")
 save(x, file = file.path(dir, fnm))

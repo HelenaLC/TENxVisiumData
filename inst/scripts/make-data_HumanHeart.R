@@ -10,5 +10,4 @@ urls <- list(
     )
 )
 
-source("inst/scripts/make-data.R")
 .make_data(dset, urls)
