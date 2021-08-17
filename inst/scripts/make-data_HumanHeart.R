@@ -1,6 +1,6 @@
 # Human Heart
 
-dset <- "HumanHeart"
+dset <- "HumanHeart_v3.13"
 
 urls <- list(
     list(
@@ -10,5 +10,4 @@ urls <- list(
     )
 )
 
-source("inst/scripts/make-data.R")
 .make_data(dset, urls)

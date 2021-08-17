@@ -1,6 +1,6 @@
 # Human Breast Cancer (Block A Section 1 & 2)
 
-dset <- "HumanBreastCancerIDC"
+dset <- "HumanBreastCancerIDC_v3.13"
 
 urls <- list(
     list(
@@ -15,5 +15,4 @@ urls <- list(
     )
 )
 
-source("inst/scripts/make-data.R")
 .make_data(dset, urls)

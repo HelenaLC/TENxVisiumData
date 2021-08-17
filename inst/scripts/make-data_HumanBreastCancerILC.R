@@ -1,7 +1,6 @@
 # Human Breast Cancer
 
-dset <- "HumanBreastCancerILC"
-source("inst/scripts/make-data.R")
+dset <- "HumanBreastCancerILC_v3.13"
 
 # Whole Transcriptome Analysis
 
@@ -20,8 +19,9 @@ urls <- list(TargetedImmunology = list(
     "Targeted_Visium_Human_BreastCancer_Immunology_spatial.tar.gz"))
 
 y <- .make_data(dset, urls, FALSE)
-altExp(x, names(urls)) <- y
 
-dir <- "~/dropbox/TENxVisiumData"
+altExp(x, names(urls)) <- y
+spe <- x; rm(x, y)
+
 fnm <- paste0(dset, ".rda")
-save(x, file = file.path(dir, fnm))
+save(spe, file = file.path(dir, fnm))

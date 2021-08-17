@@ -12,11 +12,14 @@ df <- data.frame(
     stringsAsFactors = FALSE
 )
 
+# subdirectory specific to current Bioc version
+dir <- file.path("TENxVisiumData", df$BiocVersion)
+
 dfs <- list(
     data.frame(
-        Title = "HumanBreastCancerIDC",
+        Title = paste0("HumanBreastCancerIDC_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanBreastCancerIDC.rda",
+        RDataPath = file.path(dir, "HumanBreastCancerIDC_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Breast_Cancer_Block_A_Section_1",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -24,9 +27,9 @@ dfs <- list(
             "(two sections of 10 um thickness)")
     ),
     data.frame(
-        Title = "HumanBreastCancerILC",
+        Title = paste0("HumanBreastCancerILC_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanBreastCancerILC.rda",
+        RDataPath = file.path(dir, "HumanBreastCancerILC_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_BreastCancer",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -36,9 +39,9 @@ dfs <- list(
             "+ targeted immunology panel)")
     ),
     data.frame(
-        Title = "HumanCerebellum",
+        Title = paste0("HumanCerebellum_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanCerebellum.rda",
+        RDataPath = file.path(dir, "HumanCerebellum_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_Cerebellum",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -48,9 +51,9 @@ dfs <- list(
             "+ targeted gene signature panel)")
     ),
     data.frame(
-        Title = "HumanColorectalCancer",
+        Title = paste0("HumanColorectalCancer_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanColorectalCancer.rda",
+        RDataPath = file.path(dir, "HumanColorectalCancer_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_ColorectalCancer",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -60,9 +63,9 @@ dfs <- list(
             "+ targeted neuroscience panel)")
     ),
     data.frame(
-        Title = "HumanGlioblastoma",
+        Title = paste0("HumanGlioblastoma_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanGlioblastoma.rda",
+        RDataPath = file.path(dir, "HumanGlioblastoma_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_Glioblastoma",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -72,9 +75,9 @@ dfs <- list(
             "+ targeted pan-cancer panel)")
     ),
     data.frame(
-        Title = "HumanHeart",
+        Title = paste0("HumanHeart_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanHeart.rda",
+        RDataPath = file.path(dir, "HumanHeart_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Heart",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -82,9 +85,9 @@ dfs <- list(
             "(one section of 10 um thickness)")
     ),
     data.frame(
-        Title = "HumanLymphNode",
+        Title = paste0("HumanLymphNode_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanLymphNode.rda",
+        RDataPath = file.path(dir, "HumanLymphNode_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Human_Lymph_Node",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -92,9 +95,9 @@ dfs <- list(
             "(one section of 10 um thickness)")
     ),
     data.frame(
-        Title = "HumanOvarianCancer",
+        Title = paste0("HumanOvarianCancer_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanOvarianCancer.rda",
+        RDataPath = file.path(dir, "HumanOvarianCancer_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_OvarianCancer",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -105,9 +108,9 @@ dfs <- list(
             "+ targeted pan-cancer panel)")
     ),
     data.frame(
-        Title = "HumanSpinalCord",
+        Title = paste0("HumanSpinalCord_v", df$BiocVersion),
         Species = "Homo sapiens",
-        RDataPath = "TENxVisiumData/HumanSpinalCord.rda",
+        RDataPath = file.path(dir, "HumanSpinalCord_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.2.0/Parent_Visium_Human_SpinalCord",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -117,9 +120,9 @@ dfs <- list(
             "+ targeted neuroscience panel)")
     ),
     data.frame(
-        Title = "MouseBrainCoronal",
+        Title = paste0("MouseBrainCoronal_v", df$BiocVersion),
         Species = "Mus musculus",
-        RDataPath = "TENxVisiumData/MouseBrainCoronal.rda",
+        RDataPath = file.path(dir, "MouseBrainCoronal_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Adult_Mouse_Brain",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -128,9 +131,9 @@ dfs <- list(
             "slice of the coronal plane)")
     ),
     data.frame(
-        Title = "MouseBrainSagittalPosterior",
+        Title = paste0("MouseBrainSagittalPosterior_v", df$BiocVersion),
         Species = "Mus musculus",
-        RDataPath = "TENxVisiumData/MouseBrainSagittalPosterior.rda",
+        RDataPath = file.path(dir, "MouseBrainSagittalPosterior_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Posterior",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -139,9 +142,9 @@ dfs <- list(
             "sagittal slice of the posterior)")
     ),
     data.frame(
-        Title = "MouseBrainSagittalAnterior",
+        Title = paste0("MouseBrainSagittalAnterior_v", df$BiocVersion),
         Species = "Mus musculus",
-        RDataPath = "TENxVisiumData/MouseBrainSagittalAnterior.rda",
+        RDataPath = file.path(dir, "MouseBrainSagittalAnterior_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior",
         Description = paste(
             "Visium spatial gene expression dataset",
@@ -150,9 +153,9 @@ dfs <- list(
             "sagittal slice of the anterior")
     ),
     data.frame(
-        Title = "MouseKidneyCoronal",
+        Title = paste0("MouseKidneyCoronal_v", df$BiocVersion),
         Species = "Mus musculus",
-        RDataPath = "TENxVisiumData/MouseKidneyCoronal.rda",
+        RDataPath = file.path(dir, "MouseKidneyCoronal_v3.13.rda"),
         SourceUrl = "https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Kidney",
         Description = paste(
             "Visium spatial gene expression dataset",

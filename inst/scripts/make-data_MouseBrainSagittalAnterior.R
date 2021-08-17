@@ -1,6 +1,6 @@
 # Mouse Brain Serial Section 1 & 2 (Sagittal-Anterior)
 
-dset <- "MouseBrainSagittalAnterior"
+dset <- "MouseBrainSagittalAnterior_v3.13"
 
 urls <- list(
     list(
@@ -15,5 +15,4 @@ urls <- list(
     )
 )
 
-source("inst/scripts/make-data.R")
 .make_data(dset, urls)

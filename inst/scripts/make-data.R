@@ -1,9 +1,33 @@
-# # note to self: to make all data, run:
-# suppressPackageStartupMessages(library(SpatialExperiment))
-# scripts <- list.files("inst/scripts", "make-data_", full.names = TRUE)
-# for (s in scripts) source(s)
+# version number needs to be changed 
+# in inst/scripts/make_(meta)data.R;
+# to make all data, run:
+# pkg <- "~/packages/TENxVisiumData"
+# dir <- paste0(pkg, "/data/3.13")
+# source(paste0(pkg, "/inst/scripts/make-data.R"))
+# suppressPackageStartupMessages(
+#     library(SpatialExperiment))
+# scripts <- list.files(
+#     paste0(pkg, "/inst/scripts"),
+#     "make-data_", full.names = TRUE)
+# for (s in scripts) {
+#     pat <- ".*_(.*)\\.R"
+#     txt <- gsub(pat, "\\1", s)
+#     print(txt)
+#     source(s) }
 
-.make_data <- function(dset, urls, save = TRUE, path = "~/dropbox/TENxVisiumData") {
+.make_data <- function(dset, urls, save = TRUE, path = dir)
+{
+    # create subdirectory specific
+    # to current version number (vn)
+    if (!dir.exists(path)) 
+        dir.create(path)
+    
+    # skip, if file already exists
+    out <- paste0(dset, ".rda")
+    out <- file.path(path, out)
+    if (file.exists(out)) 
+        return(NULL)
+    
     # set sample IDs
     if (is.null(names(urls))) {
         nms <- if (length(urls) == 1) dset else paste0(dset, seq_along(urls))
@@ -47,7 +71,6 @@
     
     # save or return data
     if (save) {
-        fnm <- paste0(dset, ".rda")
-        save(spe, file = file.path(path, fnm))
+        save(spe, file = out)
     } else return(spe)
 }
