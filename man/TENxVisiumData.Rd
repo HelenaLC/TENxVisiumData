@@ -62,7 +62,12 @@ eh <- ExperimentHub()
 (q <- query(eh, "TENxVisium"))
 
 # retrieve dataset of interest
-(spe <- eh[["EH6000"]])
+pat <- "HumanCerebellum"
+idx <- grep(pat, q$title)
+id <- q$ah_id[idx]
+(spe <- eh[[id]])
+
+# access targeted panel
 altExpNames(spe)
 altExp(spe, "TargetedNeuroscience")
 
