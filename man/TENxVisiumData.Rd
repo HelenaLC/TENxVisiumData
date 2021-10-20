@@ -62,7 +62,7 @@ eh <- ExperimentHub()
 (q <- query(eh, "TENxVisium"))
 
 # retrieve dataset of interest
-pat <- "HumanCerebellum"
+pat <- "HumanCerebellum$"
 idx <- grep(pat, q$title)
 id <- q$ah_id[idx]
 (spe <- eh[[id]])
